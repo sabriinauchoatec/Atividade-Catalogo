@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8" />
+    <title>Catálogo - Lista</title>
+  </head>
+  <body>
+    <h1>Produtos</h1>
+    {% if produtos %}
+      <ul>
+        {% for p in produtos %}
+          <li>
+            <strong>{{ p.nome }}</strong> — R$ {{ p.preco }}
+            | <a href="{% url 'catalogo:detalhe_produto' p.id %}">ver detalhes</a>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>Nenhum produto cadastrado. Cadastre via Django shell.</p>
+    {% endif %}
+  </body>
+</html>
